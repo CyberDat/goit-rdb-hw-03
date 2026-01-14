@@ -1,0 +1,51 @@
+SQL Запити до ДЗ №3
+Завдання 1
+1.1. Вибрати всі стовпчики з таблиці products:
+
+SQL
+
+SELECT * FROM hw3.products;
+1.2. Вибрати тільки стовпчики name, phone з таблиці shippers:
+
+SQL
+
+SELECT name, phone 
+FROM hw3.shippers;
+Завдання 2
+Знайти середнє, максимальне та мінімальне значення стовпчика price таблички products:
+
+SQL
+
+SELECT 
+    AVG(price) AS average_price, 
+    MIN(price) AS min_price, 
+    MAX(price) AS max_price 
+FROM hw3.products;
+Завдання 3
+Обрати унікальні значення category_id та price, відсортувати за спаданням ціни та вивести 10 рядків:
+
+SQL
+
+SELECT DISTINCT category_id, price
+FROM hw3.products 
+ORDER BY price DESC 
+LIMIT 10;
+Завдання 4
+Знайти кількість продуктів у цінових межах від 20 до 100:
+
+SQL
+
+SELECT COUNT(*) 
+FROM hw3.products
+WHERE price >= 20 AND price <= 100;
+Завдання 5
+Знайти кількість продуктів та середню ціну у кожного постачальника (supplier_id):
+
+SQL
+
+SELECT 
+    supplier_id, 
+    COUNT(*) AS products_count, 
+    AVG(price) AS avg_price
+FROM hw3.products
+GROUP BY supplier_id;
